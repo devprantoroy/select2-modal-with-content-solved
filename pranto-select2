@@ -1,0 +1,28 @@
+
+            var idArray = ['#mustkingList']; 
+            var modalId = ['#campModal','#grpModal'];
+            var inModalAr = ['#campaignList','#grpList'];
+
+
+            for(i = 0;i < idArray.length; i++){
+                if(modalId.length > 0){
+                    for(j = 0;j < modalId.length; j++){
+                        select2Custom(inModalAr[j], modalId[j]);
+                    }
+                }
+                select2Custom(idArray[i]);
+            }
+
+
+            function select2Custom(mainParam, modalParam = null) {
+                if(modalParam == null){
+                    $(mainParam).select2({
+                        selectOnClose: true,
+                    });
+                }else{
+                    $(mainParam).select2({
+                        selectOnClose: true,
+                        dropdownParent: $(modalParam)
+                    });
+                }
+            }
